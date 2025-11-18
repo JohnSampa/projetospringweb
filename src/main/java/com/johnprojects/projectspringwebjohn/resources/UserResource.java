@@ -1,4 +1,4 @@
-package com.johnprojects.projectspringwebjohn.resource;
+package com.johnprojects.projectspringwebjohn.resources;
 
 import com.johnprojects.projectspringwebjohn.entities.User;
 import org.springframework.http.ResponseEntity;
