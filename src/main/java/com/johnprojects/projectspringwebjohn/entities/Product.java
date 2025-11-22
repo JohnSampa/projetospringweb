@@ -19,7 +19,13 @@ public class Product {
     private Double price;
     private String urlImg;
 
-    @Transient
+
+    @ManyToMany
+    @JoinTable(
+            name = "tb_product_categories",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
     private Set<Category> categories = new HashSet<>();
 
     public Product(){}
