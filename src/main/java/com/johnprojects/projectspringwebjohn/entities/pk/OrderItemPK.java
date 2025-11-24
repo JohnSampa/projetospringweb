@@ -1,5 +1,6 @@
 package com.johnprojects.projectspringwebjohn.entities.pk;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.johnprojects.projectspringwebjohn.entities.Order;
 import com.johnprojects.projectspringwebjohn.entities.Product;
 import jakarta.persistence.Embeddable;
