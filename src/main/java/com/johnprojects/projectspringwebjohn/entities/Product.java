@@ -1,5 +1,6 @@
 package com.johnprojects.projectspringwebjohn.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -27,6 +28,9 @@ public class Product {
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
     private Set<Category> categories = new HashSet<>();
+
+   @OneToMany(mappedBy = "id.product")
+    private Set<OrderItem> items = new HashSet<>();
 
     public Product(){}
 
@@ -80,6 +84,15 @@ public class Product {
 
     public Set<Category> getCategories() {
         return categories;
+    }
+
+    @JsonIgnore
+    public Set<Order> getOrders() {
+        Set<Order> orders = new HashSet<>();
+        for (OrderItem orderItem : this.items) {
+            orders.add(orderItem.getOrder());
+        }
+        return orders;
     }
 
     @Override
